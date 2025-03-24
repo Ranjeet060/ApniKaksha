@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApniKaksha</title>
+    <link rel="stylesheet" href="styles.css">
+    <script >
+        let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+}
+
+// Adding event listeners for next and previous buttons
+document.querySelector('.prev').addEventListener('click', () => plusSlides(-1));
+document.querySelector('.next').addEventListener('click', () => plusSlides(1));
+
+// Adding event listeners for dot controls
+const dots = document.getElementsByClassName('dot');
+for (let i = 0; i < dots.length; i++) {
+    dots[i].addEventListener('click', () => currentSlide(i + 1));
+}
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#Courses">Courses</a></li>
+                <li><a href="#About Us">About Us</a></li>
+                <li><a href="#Contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to ApniKaksha</h1>
+        <p>Learn from the best instructors around the world.</p>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="IMG1.jpg" style="width:100%">
+            </div>
+            <div class="mySlides fade">
+                <img src="IMG2.jpg" style="width:100%">
+            </div>
+            <div class="mySlides fade">
+                <img src="IMG3.jpg" style="width:100%">
+            </div>
+            <!-- Add more slides as needed -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <!-- Add more dots as needed -->
+        </div>
+    </section>
+
+    <section id="courses">
+        <h2>Our Courses</h2>
+        <div class="course">
+            <h3>Foundation Courses</h3>
+            <p>Description of Foundation Courses.</p>
+        </div>
+        <div class="course">
+            <h3>Course 2</h3>
+            <p>Description of Course 2.</p>
+        </div>
+        <!-- Add more courses as needed -->
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Information about the educational platform.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Educational Website. All rights reserved.</p>
+        <div class="time-visitors">
+            <h3>DATE & TIME</h3>
+            <script language="javascript">
+              var d = new Date();
+              document.write(d);
+            </script>
+             <h3 style="font-family: Poppins;">Developed By</h3>
+             <h3>Ranjeet Prajapati </h3>
+             <h4>( Department Of Computer Science & Enigneering,Engineering College Jhalawar )</h4>
+          </div>
+    </footer>
+</body>
+</html>
